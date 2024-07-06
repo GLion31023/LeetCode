@@ -1,8 +1,7 @@
 def reverse_vowels(s: str) -> str:
-    left = 0
-    right = len(s) - 1
+    left, right = 0, len(s) - 1
     vowels = set("aeiouAEIOU")
-    result = [c for c in s]
+    result = list(s)
 
     while left < right:
         if result[left] in vowels and result[right] in vowels:
