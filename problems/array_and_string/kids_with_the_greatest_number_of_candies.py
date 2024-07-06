@@ -1,12 +1,12 @@
 def kids_with_candies(candies: list[int], extra_candies: int) -> list[bool]:
-    r = [False] * len(candies)
+    result = [False] * len(candies)
     max_candies = max(candies)
 
     for i in range(len(candies)):
         if candies[i] + extra_candies >= max_candies:
-            r[i] = True
+            result[i] = True
 
-    return r
+    return result
 
 
 print(kids_with_candies(candies=[2, 3, 5, 1, 3], extra_candies=3))
