@@ -30,4 +30,3 @@ print(compress(["a", "b", "b", "b", "b", "b", "b", "b", "b", "b", "b", "b", "b"]
 print(compress(["a", "b", "c"]))
 print(compress(["a", "a", "a", "a", "a", "b"]))
 print(compress(["a", "a", "a", "a", "b", "a"]))
-
