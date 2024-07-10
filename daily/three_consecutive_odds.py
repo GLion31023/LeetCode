@@ -4,11 +4,11 @@ def three_consecutive_odds(arr: list[int]) -> bool:
     for n in arr:
         if n % 2 == 0:
             one = two = False
-        elif one and two and n % 2 == 1:
+        elif one and two:
             return True
-        elif one and n % 2 == 1:
+        elif one:
             two = True
-        elif n % 2 == 1:
+        else:
             one = True
 
     return False
