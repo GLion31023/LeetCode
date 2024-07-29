@@ -32,10 +32,10 @@ def reverse_list(head: Optional[ListNode]) -> Optional[ListNode]:
     prev = None
 
     while head:
-        next_n = head.next
-        head.next = prev
-        prev = head
-        head = next_n
+        next_n = head.next  # 2
+        head.next = prev    # 1 -> 2 => 1 -> None
+        prev = head         # 1
+        head = next_n       # 1 = 2
 
     head = prev
 
