@@ -2,16 +2,12 @@ def reverse_letters(s: str) -> str:
     res = list(s)
     l, r = 0, len(s) - 1
 
-    def is_letter(char):
-        return (ord("A") <= ord(char) <= ord("Z") or
-                ord("a") <= ord(char) <= ord("z"))
-
     while l < r:
-        if is_letter(res[l]) and is_letter(res[r]):
+        if s[l].isalpha() and s[r].isalpha():
             res[l], res[r] = res[r], res[l]
             l += 1
             r -= 1
-        elif is_letter(s[l]):
+        elif s[l].isalpha():
             r -= 1
         else:
             l += 1
