@@ -9,10 +9,9 @@ def sum_digits_of_str(s: str, k: int) -> int:
     return res
 
 
-print(sum_digits_of_str(s = "iiii", k = 1))
-print(sum_digits_of_str(s = "leetcode", k = 2))
-print(sum_digits_of_str(s = "zbax", k = 2))
-
+print(sum_digits_of_str(s="iiii", k=1))
+print(sum_digits_of_str(s="leetcode", k=2))
+print(sum_digits_of_str(s="zbax", k=2))
 
 # Example 1:
 #
