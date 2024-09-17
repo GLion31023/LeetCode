@@ -4,7 +4,7 @@ def uncommon_words(s1: str, s2: str) -> list[str]:
     seen = set()
     set1 = set(s1.split())
     set2 = set(s2.split())
-    
+
     for w in s1.split():
         if w not in set2 and w not in seen:
             result.append(w)
