@@ -1,8 +1,7 @@
-from collections import defaultdict
-
-
 def largest_number(nums: list[int]) -> str:
     array = list(map(str, nums))
+
+    # without this we can to multiply by 9 (max len by constraint, and it will run faster, but it takes more memory
     max_len = max(len(s) for s in array)
 
     # Multiplying each number to the max length and then sorting as they are equal length
