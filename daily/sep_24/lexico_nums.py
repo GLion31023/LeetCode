@@ -1,6 +1,3 @@
-from collections import defaultdict
-
-
 def lexical_order(n: int) -> list[int]:
     num = 1
     result = [0] * n
