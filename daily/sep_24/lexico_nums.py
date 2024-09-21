@@ -19,7 +19,7 @@ def lexical_order(n: int) -> list[int]:
     return result
 
 
-print(lexical_order(13))
+print(lexical_order(10001))
 
 # Example 1:
 #
