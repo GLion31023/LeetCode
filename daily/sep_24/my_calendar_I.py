@@ -5,7 +5,6 @@ class MyCalendar:
 
     def book(self, start: int, end: int) -> bool:
         s, e = 0, len(self.events) - 1
-        insert_pos = 0
 
         while s <= e:
             mid = (s + e) // 2
