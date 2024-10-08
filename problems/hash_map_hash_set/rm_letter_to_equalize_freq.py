@@ -1,3 +1,6 @@
+import copy
+
+
 def equal_frequency(word: str) -> bool:
     freq_arr = [0] * 26
     base_ord = ord('a')
@@ -6,50 +9,19 @@ def equal_frequency(word: str) -> bool:
         pos = ord(c) - base_ord
         freq_arr[pos] += 1
 
-    freqs = sorted([x for x in freq_arr if x != 0])
+    freq_map = [x for x in freq_arr if x != 0]
 
-    if freqs[0] == 1 and freqs[-1] == 1:
-        return True
+    for c in range(len(freq_map)):
+        map_copy = copy.deepcopy(freq_map)
+        map_copy[c] -= 1
 
-    h = freqs[-1]
-    l = freqs[0]
+        if map_copy[c] == 0:
+            del map_copy[c]
 
-    if 0 < l - 1 == h:
-        n = l - 1
-        for i in freqs[1:]:
-            if i != n:
-                return False
-    elif 0 == l - 1 and freqs[1] == h:
-        n = freqs[1]
-        for i in freqs[2:]:
-            if i != n:
-                return False
-    else:
-        n = h - 1
-        freqs[-1] = n
-        for i in freqs:
-            if i != n:
-                return False
+        if len(set(map_copy)) == 1:
+            return True
 
-    return True
-
-    # seen = defaultdict(int)
-    #
-    # for c in word:
-    #     seen[c] += 1
-    #
-    # max_freq = max(seen.items(), key=operator.itemgetter(1))[0]
-    # seen[max_freq] -= 1
-    # val = seen[max_freq]
-    # if val == 0:
-    #     del seen[max_freq]
-    #
-    # f_Val = None
-    # for v in seen.values():
-    #     f_Val = v
-    #     break
-    #
-    # return sum(seen.values()) / len(seen) == f_Val
+    return False
 
 
 print(equal_frequency("abcc"))
