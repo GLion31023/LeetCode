@@ -1,24 +1,31 @@
 def three_sum(nums: list[int]) -> list[list[int]]:
     triplets = []
-    sorted_nums = nums.sort()
+    nums.sort()
+    n = len(nums)
 
-    
+    for i in range(n):
+        if i > 0 and nums[i] == nums[i - 1]:
+            continue
 
-    # end = len(nums) - 1
-    #
-    # for i in range(end - 1):
-    #     left = i + 1
-    #     while left <= end - 1:
-    #         right = left + 1
-    #         while right <= end:
-    #             if nums[i] + nums[left] + nums[right] == 0:
-    #                 triplet = sorted([nums[i], nums[left], nums[right]])
-    #                 if triplet not in triplets:
-    #                     triplets.append(triplet)
-    #             right += 1
-    #         left += 1
-    #
-    # return triplets
+        left, right = i + 1, n - 1
+        while left < right:
+            total = nums[i] + nums[left] + nums[right]
+            if total == 0:
+                triplets.append([nums[i], nums[left], nums[right]])
+
+                while left < right and nums[left] == nums[left + 1]:
+                    left += 1
+                while left < right and nums[right] == nums[right - 1]:
+                    right -= 1
+
+                left += 1
+                right -= 1
+            elif total < 0:
+                left += 1
+            else:
+                right -= 1
+
+    return triplets
 
 
 print(three_sum([-1, 0, 1, 2, -1, -4]))
