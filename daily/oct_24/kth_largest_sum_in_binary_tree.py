@@ -15,14 +15,15 @@ def kth_largest_level_sum(root: Optional[TreeNode], k: int) -> int:
     q = deque()
     q.append(root)
 
-    while any(q):
+    while q:
         q_len = len(q)
         level_res = 0
         for n in range(q_len):
             node = q.popleft()
-            if node:
-                level_res += node.val
+            level_res += node.val
+            if node.left:
                 q.append(node.left)
+            if node.right:
                 q.append(node.right)
         result.append(level_res)
 
