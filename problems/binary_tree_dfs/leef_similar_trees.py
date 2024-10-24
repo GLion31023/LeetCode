@@ -7,6 +7,9 @@ class TreeNode:
         self.left = left
         self.right = right
 
+    def __repr__(self):
+        return f"{self.val}"
+
 
 def get_leaves(root: Optional[TreeNode]) -> list[int]:
     leaves = []
@@ -17,8 +20,10 @@ def get_leaves(root: Optional[TreeNode]) -> list[int]:
         if node:
             if not node.left and not node.right:
                 leaves.append(node.val)
-            stack.append(node.right)
-            stack.append(node.left)
+            if node.right:
+                stack.append(node.right)
+            if node.left:
+                stack.append(node.left)
 
     return leaves
 
