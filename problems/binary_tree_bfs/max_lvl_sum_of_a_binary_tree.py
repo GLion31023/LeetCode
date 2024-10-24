@@ -15,15 +15,14 @@ class TreeNode:
 def max_lvl_sum(root: Optional[TreeNode]) -> int:
     q = deque([root])
 
-    max_lvl = 1
+    max_lvl = curr_lvl = 1
     max_sum = root.val
-    curr_lvl = 1
 
     while q:
-        q_len = len(q)
+        lvl_len = len(q)
         lvl_sum = 0
 
-        for _ in range(q_len):
+        for _ in range(lvl_len):
             n = q.popleft()
             lvl_sum += n.val
             if n.left:
