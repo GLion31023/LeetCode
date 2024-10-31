@@ -4,18 +4,17 @@ import heapq
 class SmallestInfiniteSet:
     def __init__(self):
         self.nums = [x for x in range(1, 1001)]
-        self.active = set(x for x in range(1, 1001))
+        self.not_active = set()
         heapq.heapify(self.nums)
 
     def pop_smallest(self) -> int:
         num = heapq.heappop(self.nums)
-        if num in self.active:
-            self.active.remove(num)
+        self.not_active.add(num)
         return num
 
     def add_back(self, num: int) -> None:
-        if num not in self.active:
-            self.active.add(num)
+        if num in self.not_active:
+            self.not_active.remove(num)
             heapq.heappush(self.nums, num)
 
 
